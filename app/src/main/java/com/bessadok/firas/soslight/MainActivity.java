@@ -1,7 +1,10 @@
 package com.bessadok.firas.soslight;
 
+import android.content.pm.PackageManager;
+import android.hardware.Camera;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -10,6 +13,8 @@ import android.widget.Button;
 
 public class MainActivity extends ActionBarActivity {
 
+    private Camera camera;
+    private Camera.Parameters cameraParameters;
     private Button toggleButton;
 
     @Override
@@ -17,12 +22,30 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
+            Log.e("err", "This device doesn't have a camera");
+            return;
+        }
+
+        camera = Camera.open();
+        cameraParameters = camera.getParameters();
+        camera.startPreview();
+
         toggleButton = (Button) findViewById(R.id.toggleButton);
+        toggleButton.setSelected(Camera.Parameters.FLASH_MODE_TORCH.equals(camera.getParameters().getFlashMode()));
         toggleButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-
+                if (Camera.Parameters.FLASH_MODE_OFF.equals(camera.getParameters().getFlashMode())) {
+                    cameraParameters.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
+                    camera.setParameters(cameraParameters);
+                    camera.startPreview();
+                } else {
+                    cameraParameters.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
+                    camera.setParameters(cameraParameters);
+                    camera.stopPreview();
+                }
             }
         });
     }

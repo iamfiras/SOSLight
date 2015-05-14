@@ -10,12 +10,20 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.bessadok.firas.soslight.morseutils.MorseCode;
+import com.bessadok.firas.soslight.morseutils.MorseCodeUtils;
+import com.bessadok.firas.soslight.morseutils.MorseLetter;
+
+import java.util.List;
+
 
 public class MainActivity extends ActionBarActivity {
 
-    private Camera camera;
-    private Camera.Parameters cameraParameters;
     private Button sosButton;
+
+    private Camera camera;
+    private Camera.Parameters cameraON;
+    private Camera.Parameters cameraOFF;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +36,12 @@ public class MainActivity extends ActionBarActivity {
         }
 
         camera = Camera.open();
-        cameraParameters = camera.getParameters();
         camera.startPreview();
+
+        cameraON = camera.getParameters();
+        cameraON.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
+        cameraOFF = camera.getParameters();
+        cameraOFF.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
 
         sosButton = (Button) findViewById(R.id.button);
         sosButton.setSelected(Camera.Parameters.FLASH_MODE_TORCH.equals(camera.getParameters().getFlashMode()));
@@ -37,17 +49,28 @@ public class MainActivity extends ActionBarActivity {
 
             @Override
             public void onClick(View v) {
-                if (Camera.Parameters.FLASH_MODE_OFF.equals(camera.getParameters().getFlashMode())) {
-                    cameraParameters.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
-                    camera.setParameters(cameraParameters);
-                    camera.startPreview();
-                } else {
-                    cameraParameters.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
-                    camera.setParameters(cameraParameters);
-                    camera.stopPreview();
+                try {
+                    lightWritting("SOS");
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             }
         });
+    }
+
+    private void lightWritting(String message) throws InterruptedException {
+        for (MorseLetter morseLettre : MorseCodeUtils.INSTANCE.toMorseCode(message)) {
+            for (MorseCode morseCode : morseLettre.getMorseSequence()) {
+                camera.setParameters(cameraON);
+                if ( MorseCode.POINT.equals(morseCode) ) {
+                    Thread.sleep(MorseCodeUtils.POINT_DELAY);
+                } else if ( MorseCode.LINE.equals(morseCode) ) {
+                    Thread.sleep(MorseCodeUtils.LINE_DELAY);
+                }
+                camera.setParameters(cameraOFF);
+                Thread.sleep(MorseCodeUtils.POINT_DELAY);
+            }
+        }
     }
 
     @Override

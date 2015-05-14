@@ -59,8 +59,13 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void lightWritting(String message) throws InterruptedException {
+        boolean newWord = false;
         for (MorseLetter morseLettre : MorseCodeUtils.INSTANCE.toMorseCode(message)) {
             for (MorseCode morseCode : morseLettre.getMorseSequence()) {
+                if (MorseCode.SPACE.equals(morseCode)) {
+                    newWord = true;
+                    continue;
+                }
                 camera.setParameters(cameraON);
                 if ( MorseCode.POINT.equals(morseCode) ) {
                     Thread.sleep(MorseCodeUtils.POINT_DELAY);
@@ -69,6 +74,14 @@ public class MainActivity extends ActionBarActivity {
                 }
                 camera.setParameters(cameraOFF);
                 Thread.sleep(MorseCodeUtils.POINT_DELAY);
+            }
+
+            if (newWord) {
+                newWord = false;
+                Thread.sleep(MorseCodeUtils.BETWEEN_WORDS_DELAY);
+            } else {
+                // We already had a short (point) delay before, after the last morseCode
+                Thread.sleep(MorseCodeUtils.BETWEEN_LETTERS_DELAY - MorseCodeUtils.POINT_DELAY);
             }
         }
     }

@@ -30,4 +30,15 @@ public class MorseLetter {
         morseSequence.add(code3);
         morseSequence.add(code4);
     }
+
+    public List<MorseCode> getMorseSequence() {
+        return morseSequence;
+    }
+
+    public boolean equals(Object object) {
+        if (object instanceof MorseLetter) {
+            return ((MorseLetter) object).getMorseSequence().equals(morseSequence);
+        }
+        return false;
+    }
 }

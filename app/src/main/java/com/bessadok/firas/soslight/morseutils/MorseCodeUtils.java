@@ -47,7 +47,7 @@ public enum MorseCodeUtils {
             return EMPTY_LIST;
         }
         List<MorseLetter> morseSequence = new ArrayList<MorseLetter>();
-        for (Character character : text.toCharArray()) {
+        for (Character character : text.toUpperCase().toCharArray()) {
             morseSequence.add(morseCode.get(character));
         }
         return morseSequence;

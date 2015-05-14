@@ -5,10 +5,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MorseCodeUtils {
+public enum MorseCodeUtils {
+
+    INSTANCE;
 
     public static final List EMPTY_LIST = new ArrayList();
-    
+
     private final Map<Character, MorseLetter> morseCode = new HashMap<Character, MorseLetter>();
     {
         morseCode.put('A', new MorseLetter(MorseCode.Point, MorseCode.Line));

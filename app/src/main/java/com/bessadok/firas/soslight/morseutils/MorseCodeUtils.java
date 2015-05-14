@@ -13,32 +13,32 @@ public enum MorseCodeUtils {
 
     private final Map<Character, MorseLetter> morseCode = new HashMap<Character, MorseLetter>();
     {
-        morseCode.put('A', new MorseLetter(MorseCode.Point, MorseCode.Line));
-        morseCode.put('B', new MorseLetter(MorseCode.Line, MorseCode.Point, MorseCode.Point, MorseCode.Point));
-        morseCode.put('C', new MorseLetter(MorseCode.Line, MorseCode.Point, MorseCode.Line, MorseCode.Point));
-        morseCode.put('D', new MorseLetter(MorseCode.Line, MorseCode.Point, MorseCode.Point));
-        morseCode.put('E', new MorseLetter(MorseCode.Point));
-        morseCode.put('F', new MorseLetter(MorseCode.Point, MorseCode.Point, MorseCode.Line, MorseCode.Point));
-        morseCode.put('G', new MorseLetter(MorseCode.Line, MorseCode.Line, MorseCode.Point));
-        morseCode.put('H', new MorseLetter(MorseCode.Point, MorseCode.Point, MorseCode.Point, MorseCode.Point));
-        morseCode.put('I', new MorseLetter(MorseCode.Point, MorseCode.Point));
-        morseCode.put('J', new MorseLetter(MorseCode.Point, MorseCode.Line, MorseCode.Line, MorseCode.Line));
-        morseCode.put('K', new MorseLetter(MorseCode.Line, MorseCode.Point, MorseCode.Line));
-        morseCode.put('L', new MorseLetter(MorseCode.Point, MorseCode.Line, MorseCode.Point, MorseCode.Point));
-        morseCode.put('M', new MorseLetter(MorseCode.Line, MorseCode.Line));
-        morseCode.put('N', new MorseLetter(MorseCode.Line, MorseCode.Point));
-        morseCode.put('O', new MorseLetter(MorseCode.Line, MorseCode.Line, MorseCode.Line));
-        morseCode.put('P', new MorseLetter(MorseCode.Point, MorseCode.Line, MorseCode.Line, MorseCode.Point));
-        morseCode.put('Q', new MorseLetter(MorseCode.Line, MorseCode.Line, MorseCode.Point, MorseCode.Line));
-        morseCode.put('R', new MorseLetter(MorseCode.Point, MorseCode.Line, MorseCode.Point));
-        morseCode.put('S', new MorseLetter(MorseCode.Point, MorseCode.Point, MorseCode.Point));
-        morseCode.put('T', new MorseLetter(MorseCode.Line));
-        morseCode.put('U', new MorseLetter(MorseCode.Point, MorseCode.Point, MorseCode.Line));
-        morseCode.put('V', new MorseLetter(MorseCode.Point, MorseCode.Point, MorseCode.Point, MorseCode.Line));
-        morseCode.put('W', new MorseLetter(MorseCode.Point, MorseCode.Line, MorseCode.Line));
-        morseCode.put('X', new MorseLetter(MorseCode.Line, MorseCode.Point, MorseCode.Point, MorseCode.Line));
-        morseCode.put('Y', new MorseLetter(MorseCode.Line, MorseCode.Point, MorseCode.Line, MorseCode.Line));
-        morseCode.put('Z', new MorseLetter(MorseCode.Line, MorseCode.Line, MorseCode.Point, MorseCode.Point));
+        morseCode.put('A', new MorseLetter(MorseCode.POINT, MorseCode.LINE));
+        morseCode.put('B', new MorseLetter(MorseCode.LINE, MorseCode.POINT, MorseCode.POINT, MorseCode.POINT));
+        morseCode.put('C', new MorseLetter(MorseCode.LINE, MorseCode.POINT, MorseCode.LINE, MorseCode.POINT));
+        morseCode.put('D', new MorseLetter(MorseCode.LINE, MorseCode.POINT, MorseCode.POINT));
+        morseCode.put('E', new MorseLetter(MorseCode.POINT));
+        morseCode.put('F', new MorseLetter(MorseCode.POINT, MorseCode.POINT, MorseCode.LINE, MorseCode.POINT));
+        morseCode.put('G', new MorseLetter(MorseCode.LINE, MorseCode.LINE, MorseCode.POINT));
+        morseCode.put('H', new MorseLetter(MorseCode.POINT, MorseCode.POINT, MorseCode.POINT, MorseCode.POINT));
+        morseCode.put('I', new MorseLetter(MorseCode.POINT, MorseCode.POINT));
+        morseCode.put('J', new MorseLetter(MorseCode.POINT, MorseCode.LINE, MorseCode.LINE, MorseCode.LINE));
+        morseCode.put('K', new MorseLetter(MorseCode.LINE, MorseCode.POINT, MorseCode.LINE));
+        morseCode.put('L', new MorseLetter(MorseCode.POINT, MorseCode.LINE, MorseCode.POINT, MorseCode.POINT));
+        morseCode.put('M', new MorseLetter(MorseCode.LINE, MorseCode.LINE));
+        morseCode.put('N', new MorseLetter(MorseCode.LINE, MorseCode.POINT));
+        morseCode.put('O', new MorseLetter(MorseCode.LINE, MorseCode.LINE, MorseCode.LINE));
+        morseCode.put('P', new MorseLetter(MorseCode.POINT, MorseCode.LINE, MorseCode.LINE, MorseCode.POINT));
+        morseCode.put('Q', new MorseLetter(MorseCode.LINE, MorseCode.LINE, MorseCode.POINT, MorseCode.LINE));
+        morseCode.put('R', new MorseLetter(MorseCode.POINT, MorseCode.LINE, MorseCode.POINT));
+        morseCode.put('S', new MorseLetter(MorseCode.POINT, MorseCode.POINT, MorseCode.POINT));
+        morseCode.put('T', new MorseLetter(MorseCode.LINE));
+        morseCode.put('U', new MorseLetter(MorseCode.POINT, MorseCode.POINT, MorseCode.LINE));
+        morseCode.put('V', new MorseLetter(MorseCode.POINT, MorseCode.POINT, MorseCode.POINT, MorseCode.LINE));
+        morseCode.put('W', new MorseLetter(MorseCode.POINT, MorseCode.LINE, MorseCode.LINE));
+        morseCode.put('X', new MorseLetter(MorseCode.LINE, MorseCode.POINT, MorseCode.POINT, MorseCode.LINE));
+        morseCode.put('Y', new MorseLetter(MorseCode.LINE, MorseCode.POINT, MorseCode.LINE, MorseCode.LINE));
+        morseCode.put('Z', new MorseLetter(MorseCode.LINE, MorseCode.LINE, MorseCode.POINT, MorseCode.POINT));
         morseCode.put(' ', new MorseLetter(MorseCode.SPACE));
     }
 

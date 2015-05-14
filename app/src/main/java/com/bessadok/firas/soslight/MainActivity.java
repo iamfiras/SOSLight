@@ -15,7 +15,7 @@ public class MainActivity extends ActionBarActivity {
 
     private Camera camera;
     private Camera.Parameters cameraParameters;
-    private Button toggleButton;
+    private Button sosButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +31,9 @@ public class MainActivity extends ActionBarActivity {
         cameraParameters = camera.getParameters();
         camera.startPreview();
 
-        toggleButton = (Button) findViewById(R.id.toggleButton);
-        toggleButton.setSelected(Camera.Parameters.FLASH_MODE_TORCH.equals(camera.getParameters().getFlashMode()));
-        toggleButton.setOnClickListener(new View.OnClickListener() {
+        sosButton = (Button) findViewById(R.id.button);
+        sosButton.setSelected(Camera.Parameters.FLASH_MODE_TORCH.equals(camera.getParameters().getFlashMode()));
+        sosButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {

@@ -11,6 +11,14 @@ public enum MorseCodeUtils {
 
     public static final List EMPTY_LIST = new ArrayList();
 
+    public static final int STANDARD_DELAY = 250;
+
+    public static final int POINT_DELAY = STANDARD_DELAY;
+    public static final int LINE_DELAY = STANDARD_DELAY * 3;
+
+    public static final int BETWEEN_LETTERS_DELAY = LINE_DELAY;
+    public static final int BETWEEN_WORDS_DELAY = STANDARD_DELAY * 5;
+
     private final Map<Character, MorseLetter> morseCode = new HashMap<Character, MorseLetter>();
     {
         morseCode.put('A', new MorseLetter(MorseCode.POINT, MorseCode.LINE));

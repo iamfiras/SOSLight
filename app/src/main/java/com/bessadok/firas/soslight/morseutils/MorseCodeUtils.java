@@ -1,16 +1,13 @@
-package com.bessadok.firas.soslight;
-
-import android.support.annotation.NonNull;
+package com.bessadok.firas.soslight.morseutils;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 public class MorseCodeUtils {
+
+    public static final List EMPTY_LIST = new ArrayList();
     
     private final Map<Character, MorseLetter> morseCode = new HashMap<Character, MorseLetter>();
     {
@@ -41,5 +38,16 @@ public class MorseCodeUtils {
         morseCode.put('Y', new MorseLetter(MorseCode.Line, MorseCode.Point, MorseCode.Line, MorseCode.Line));
         morseCode.put('Z', new MorseLetter(MorseCode.Line, MorseCode.Line, MorseCode.Point, MorseCode.Point));
         morseCode.put(' ', new MorseLetter(MorseCode.SPACE));
+    }
+
+    public List<MorseLetter> toMorseCode(String text) {
+        if (text == null || text.isEmpty()) {
+            return EMPTY_LIST;
+        }
+        List<MorseLetter> morseSequence = new ArrayList<MorseLetter>();
+        for (Character character : text.toCharArray()) {
+            morseSequence.add(morseCode.get(character));
+        }
+        return morseSequence;
     }
 }

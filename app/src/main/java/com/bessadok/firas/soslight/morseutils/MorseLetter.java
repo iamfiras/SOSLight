@@ -1,4 +1,4 @@
-package com.bessadok.firas.soslight;
+package com.bessadok.firas.soslight.morseutils;
 
 import java.util.ArrayList;
 import java.util.List;

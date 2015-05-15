@@ -8,11 +8,14 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 
 import com.bessadok.firas.soslight.morseutils.MorseCode;
 import com.bessadok.firas.soslight.morseutils.MorseCodeUtils;
 import com.bessadok.firas.soslight.morseutils.MorseLetter;
+import com.cengalabs.flatui.FlatUI;
 
 import java.util.List;
 
@@ -28,7 +31,13 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        FlatUI.initDefaultValues(this);
+        FlatUI.setDefaultTheme(FlatUI.BLOOD);
+
         setContentView(R.layout.activity_main);
+
+        getSupportActionBar().setBackgroundDrawable(FlatUI.getActionBarDrawable(this, FlatUI.BLOOD, false, 2));
 
         if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
             Log.e("err", "This device doesn't have a camera");

@@ -69,7 +69,7 @@ public class MainActivity extends ActionBarActivity {
         @Override
         protected Void doInBackground(Void... params) {
             try {
-                sosLightWritting();
+                sosLightWriting();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -88,7 +88,7 @@ public class MainActivity extends ActionBarActivity {
             sosButton.setEnabled(true);
         }
 
-        private void sosLightWritting() throws InterruptedException {
+        private void sosLightWriting() throws InterruptedException {
             publishProgress("S");
 
             camera.setParameters(cameraON);

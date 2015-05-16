@@ -22,13 +22,35 @@
         flatui:fl_fontWeight="light"
         android:textSize="20pt" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView"
-        android:layout_above="@+id/button"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="50dp"
-        android:textSize="20dp" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/sosText1"
+            android:layout_weight="1"
+            android:textSize="15pt"
+            android:gravity="center|center_vertical|center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/sosText2"
+            android:layout_weight="1"
+            android:textSize="15pt"
+            android:gravity="center|center_vertical|center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/sosText3"
+            android:layout_weight="1"
+            android:textSize="15pt"
+            android:gravity="center|center_vertical|center_horizontal" />
+    </LinearLayout>
 
 </RelativeLayout>

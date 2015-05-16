@@ -2,27 +2,28 @@ package com.bessadok.firas.soslight;
 
 import android.content.pm.PackageManager;
 import android.hardware.Camera;
+import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.TextView;
 
-import com.bessadok.firas.soslight.morseutils.MorseCode;
-import com.bessadok.firas.soslight.morseutils.MorseCodeUtils;
-import com.bessadok.firas.soslight.morseutils.MorseLetter;
 import com.cengalabs.flatui.FlatUI;
-
-import java.util.List;
 
 
 public class MainActivity extends ActionBarActivity {
 
+    private static final int STANDARD_DELAY = 250;
+    private static final int POINT_DELAY = STANDARD_DELAY;
+    private static final int LINE_DELAY = STANDARD_DELAY * 3;
+    private static final int BETWEEN_LETTERS_DELAY = LINE_DELAY;
+
     private Button sosButton;
+    private TextView textView;
 
     private Camera camera;
     private Camera.Parameters cameraON;
@@ -52,46 +53,85 @@ public class MainActivity extends ActionBarActivity {
         cameraOFF = camera.getParameters();
         cameraOFF.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
 
+        textView = (TextView) findViewById(R.id.textView);
+
         sosButton = (Button) findViewById(R.id.button);
         sosButton.setSelected(Camera.Parameters.FLASH_MODE_TORCH.equals(camera.getParameters().getFlashMode()));
         sosButton.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
-                try {
-                    lightWritting("E");
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                new SOSWriting().execute();
             }
         });
     }
 
-    private void lightWritting(String message) throws InterruptedException {
-        boolean newWord = false;
-        for (MorseLetter morseLettre : MorseCodeUtils.INSTANCE.toMorseCode(message)) {
-            for (MorseCode morseCode : morseLettre.getMorseSequence()) {
-                if (MorseCode.SPACE.equals(morseCode)) {
-                    newWord = true;
-                    continue;
-                }
-                camera.setParameters(cameraON);
-                if ( MorseCode.POINT.equals(morseCode) ) {
-                    Thread.sleep(MorseCodeUtils.POINT_DELAY);
-                } else if ( MorseCode.LINE.equals(morseCode) ) {
-                    Thread.sleep(MorseCodeUtils.LINE_DELAY);
-                }
-                camera.setParameters(cameraOFF);
-                Thread.sleep(MorseCodeUtils.POINT_DELAY);
+    private class SOSWriting extends AsyncTask<Void, String, Void> {
+        @Override
+        protected Void doInBackground(Void... params) {
+            try {
+                sosLightWritting();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
+            return null;
+        }
 
-            if (newWord) {
-                newWord = false;
-                Thread.sleep(MorseCodeUtils.BETWEEN_WORDS_DELAY);
-            } else {
-                // We already had a short (point) delay before, after the last morseCode
-                Thread.sleep(MorseCodeUtils.BETWEEN_LETTERS_DELAY - MorseCodeUtils.POINT_DELAY);
-            }
+        protected void onPreExecute () {
+            sosButton.setEnabled(false);
+        }
+
+        protected void onProgressUpdate (String... values) {
+            textView.setText(values[0]);
+        }
+
+        protected void onPostExecute(Void result) {
+            sosButton.setEnabled(true);
+        }
+
+        private void sosLightWritting() throws InterruptedException {
+            publishProgress("S");
+
+            camera.setParameters(cameraON);
+            Thread.sleep(POINT_DELAY);
+            camera.setParameters(cameraOFF);
+            Thread.sleep(POINT_DELAY);
+            camera.setParameters(cameraON);
+            Thread.sleep(POINT_DELAY);
+            camera.setParameters(cameraOFF);
+            Thread.sleep(POINT_DELAY);
+            camera.setParameters(cameraON);
+            Thread.sleep(POINT_DELAY);
+            camera.setParameters(cameraOFF);
+            Thread.sleep(BETWEEN_LETTERS_DELAY);
+
+            publishProgress("S O");
+
+            camera.setParameters(cameraON);
+            Thread.sleep(LINE_DELAY);
+            camera.setParameters(cameraOFF);
+            Thread.sleep(POINT_DELAY);
+            camera.setParameters(cameraON);
+            Thread.sleep(LINE_DELAY);
+            camera.setParameters(cameraOFF);
+            Thread.sleep(POINT_DELAY);
+            camera.setParameters(cameraON);
+            Thread.sleep(LINE_DELAY);
+            camera.setParameters(cameraOFF);
+            Thread.sleep(BETWEEN_LETTERS_DELAY);
+
+            publishProgress("S O S");
+
+            camera.setParameters(cameraON);
+            Thread.sleep(POINT_DELAY);
+            camera.setParameters(cameraOFF);
+            Thread.sleep(POINT_DELAY);
+            camera.setParameters(cameraON);
+            Thread.sleep(POINT_DELAY);
+            camera.setParameters(cameraOFF);
+            Thread.sleep(POINT_DELAY);
+            camera.setParameters(cameraON);
+            Thread.sleep(POINT_DELAY);
+            camera.setParameters(cameraOFF);
         }
     }
 

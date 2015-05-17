@@ -50,13 +50,7 @@ public class MainActivity extends ActionBarActivity {
             return;
         }
 
-        camera = Camera.open();
-        camera.startPreview();
-
-        cameraON = camera.getParameters();
-        cameraON.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
-        cameraOFF = camera.getParameters();
-        cameraOFF.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
+        cameraSetup();
 
         sosText1 = (TextView) findViewById(R.id.sosText1);
         sosText2 = (TextView) findViewById(R.id.sosText2);
@@ -73,6 +67,16 @@ public class MainActivity extends ActionBarActivity {
                 new SOSWriting().execute();
             }
         });
+    }
+
+    private void cameraSetup() {
+        camera = Camera.open();
+        camera.startPreview();
+
+        cameraON = camera.getParameters();
+        cameraON.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
+        cameraOFF = camera.getParameters();
+        cameraOFF.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
     }
 
     private class SOSWriting extends AsyncTask<Void, String, Void> {
@@ -246,5 +250,20 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onPause() {
+        camera.release();
+        camera = null;
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (camera == null) {
+            cameraSetup();
+        }
     }
 }

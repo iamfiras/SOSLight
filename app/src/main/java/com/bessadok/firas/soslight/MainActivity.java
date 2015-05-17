@@ -114,7 +114,7 @@ public class MainActivity extends ActionBarActivity {
                     BLACK_FONT + "S" + END_FONT,
                     GRAY_FONT + "O" + END_FONT,
                     GRAY_FONT + "S" + END_FONT,
-                    BLACK_FONT + ". . ." + END_FONT,
+                    BLACK_FONT + "." + END_FONT + GRAY_FONT + " . ." + END_FONT,
                     GRAY_FONT + "_ _ _" + END_FONT,
                     GRAY_FONT + ". . ." + END_FONT);
 
@@ -122,14 +122,58 @@ public class MainActivity extends ActionBarActivity {
             Thread.sleep(POINT_DELAY);
             camera.setParameters(cameraOFF);
             Thread.sleep(POINT_DELAY);
+
+            publishProgress(
+                    BLACK_FONT + "S" + END_FONT,
+                    GRAY_FONT + "O" + END_FONT,
+                    GRAY_FONT + "S" + END_FONT,
+                    BLACK_FONT + ". ." + END_FONT + GRAY_FONT + " ." + END_FONT,
+                    GRAY_FONT + "_ _ _" + END_FONT,
+                    GRAY_FONT + ". . ." + END_FONT);
+
             camera.setParameters(cameraON);
             Thread.sleep(POINT_DELAY);
             camera.setParameters(cameraOFF);
             Thread.sleep(POINT_DELAY);
+
+            publishProgress(
+                    BLACK_FONT + "S" + END_FONT,
+                    GRAY_FONT + "O" + END_FONT,
+                    GRAY_FONT + "S" + END_FONT,
+                    BLACK_FONT + ". . ." + END_FONT,
+                    GRAY_FONT + "_ _ _" + END_FONT,
+                    GRAY_FONT + ". . ." + END_FONT);
+
             camera.setParameters(cameraON);
             Thread.sleep(POINT_DELAY);
             camera.setParameters(cameraOFF);
             Thread.sleep(BETWEEN_LETTERS_DELAY);
+
+            publishProgress(
+                    BLACK_FONT + "S" + END_FONT,
+                    BLACK_FONT + "O" + END_FONT,
+                    GRAY_FONT + "S" + END_FONT,
+                    BLACK_FONT + ". . ." + END_FONT,
+                    BLACK_FONT + "_" + END_FONT + GRAY_FONT + " _ _" + END_FONT,
+                    GRAY_FONT + ". . ." + END_FONT);
+
+            camera.setParameters(cameraON);
+            Thread.sleep(LINE_DELAY);
+            camera.setParameters(cameraOFF);
+            Thread.sleep(POINT_DELAY);
+
+            publishProgress(
+                    BLACK_FONT + "S" + END_FONT,
+                    BLACK_FONT + "O" + END_FONT,
+                    GRAY_FONT + "S" + END_FONT,
+                    BLACK_FONT + ". . ." + END_FONT,
+                    BLACK_FONT + "_ _" + END_FONT + GRAY_FONT + " _" + END_FONT,
+                    GRAY_FONT + ". . ." + END_FONT);
+
+            camera.setParameters(cameraON);
+            Thread.sleep(LINE_DELAY);
+            camera.setParameters(cameraOFF);
+            Thread.sleep(POINT_DELAY);
 
             publishProgress(
                     BLACK_FONT + "S" + END_FONT,
@@ -142,15 +186,33 @@ public class MainActivity extends ActionBarActivity {
             camera.setParameters(cameraON);
             Thread.sleep(LINE_DELAY);
             camera.setParameters(cameraOFF);
-            Thread.sleep(POINT_DELAY);
-            camera.setParameters(cameraON);
-            Thread.sleep(LINE_DELAY);
-            camera.setParameters(cameraOFF);
-            Thread.sleep(POINT_DELAY);
-            camera.setParameters(cameraON);
-            Thread.sleep(LINE_DELAY);
-            camera.setParameters(cameraOFF);
             Thread.sleep(BETWEEN_LETTERS_DELAY);
+
+            publishProgress(
+                    BLACK_FONT + "S" + END_FONT,
+                    BLACK_FONT + "O" + END_FONT,
+                    BLACK_FONT + "S" + END_FONT,
+                    BLACK_FONT + ". . ." + END_FONT,
+                    BLACK_FONT + "_ _ _" + END_FONT,
+                    BLACK_FONT + "." + END_FONT + GRAY_FONT + " . ." + END_FONT);
+
+            camera.setParameters(cameraON);
+            Thread.sleep(POINT_DELAY);
+            camera.setParameters(cameraOFF);
+            Thread.sleep(POINT_DELAY);
+
+            publishProgress(
+                    BLACK_FONT + "S" + END_FONT,
+                    BLACK_FONT + "O" + END_FONT,
+                    BLACK_FONT + "S" + END_FONT,
+                    BLACK_FONT + ". . ." + END_FONT,
+                    BLACK_FONT + "_ _ _" + END_FONT,
+                    BLACK_FONT + ". ." + END_FONT + GRAY_FONT + " ." + END_FONT);
+
+            camera.setParameters(cameraON);
+            Thread.sleep(POINT_DELAY);
+            camera.setParameters(cameraOFF);
+            Thread.sleep(POINT_DELAY);
 
             publishProgress(
                     BLACK_FONT + "S" + END_FONT,
@@ -160,14 +222,6 @@ public class MainActivity extends ActionBarActivity {
                     BLACK_FONT + "_ _ _" + END_FONT,
                     BLACK_FONT + ". . ." + END_FONT);
 
-            camera.setParameters(cameraON);
-            Thread.sleep(POINT_DELAY);
-            camera.setParameters(cameraOFF);
-            Thread.sleep(POINT_DELAY);
-            camera.setParameters(cameraON);
-            Thread.sleep(POINT_DELAY);
-            camera.setParameters(cameraOFF);
-            Thread.sleep(POINT_DELAY);
             camera.setParameters(cameraON);
             Thread.sleep(POINT_DELAY);
             camera.setParameters(cameraOFF);

@@ -23,34 +23,73 @@
         android:textSize="20pt" />
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/sosText1"
             android:layout_weight="1"
-            android:textSize="15pt"
-            android:gravity="center|center_vertical|center_horizontal" />
+            android:gravity="center|center_vertical|center_horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/sosText1"
+                android:layout_weight="1"
+                android:textSize="15pt"
+                android:gravity="center|center_vertical|center_horizontal" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/sosText2"
-            android:layout_weight="1"
-            android:textSize="15pt"
-            android:gravity="center|center_vertical|center_horizontal" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/sosText2"
+                android:layout_weight="1"
+                android:textSize="15pt"
+                android:gravity="center|center_vertical|center_horizontal" />
 
-        <TextView
-            android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/sosText3"
+                android:layout_weight="1"
+                android:textSize="15pt"
+                android:gravity="center|center_vertical|center_horizontal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/sosText3"
             android:layout_weight="1"
-            android:textSize="15pt"
-            android:gravity="center|center_vertical|center_horizontal" />
+            android:gravity="center|center_vertical|center_horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/sosMorseText1"
+                android:layout_weight="1"
+                android:textSize="15pt"
+                android:gravity="center|center_vertical|center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/sosMorseText2"
+                android:layout_weight="1"
+                android:textSize="15pt"
+                android:gravity="center|center_vertical|center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/sosMorseText3"
+                android:layout_weight="1"
+                android:textSize="15pt"
+                android:gravity="center|center_vertical|center_horizontal" />
+        </LinearLayout>
+
     </LinearLayout>
 
 </RelativeLayout>

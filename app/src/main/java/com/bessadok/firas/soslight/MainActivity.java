@@ -28,6 +28,9 @@ public class MainActivity extends ActionBarActivity {
     private TextView sosText1;
     private TextView sosText2;
     private TextView sosText3;
+    private TextView sosMorseText1;
+    private TextView sosMorseText2;
+    private TextView sosMorseText3;
 
     private Camera camera;
     private Camera.Parameters cameraON;
@@ -60,6 +63,9 @@ public class MainActivity extends ActionBarActivity {
         sosText1 = (TextView) findViewById(R.id.sosText1);
         sosText2 = (TextView) findViewById(R.id.sosText2);
         sosText3 = (TextView) findViewById(R.id.sosText3);
+        sosMorseText1 = (TextView) findViewById(R.id.sosMorseText1);
+        sosMorseText2 = (TextView) findViewById(R.id.sosMorseText2);
+        sosMorseText3 = (TextView) findViewById(R.id.sosMorseText3);
 
         sosButton = (Button) findViewById(R.id.button);
         sosButton.setSelected(Camera.Parameters.FLASH_MODE_TORCH.equals(camera.getParameters().getFlashMode()));
@@ -90,6 +96,9 @@ public class MainActivity extends ActionBarActivity {
             sosText1.setText(Html.fromHtml(values[0]));
             sosText2.setText(Html.fromHtml(values[1]));
             sosText3.setText(Html.fromHtml(values[2]));
+            sosMorseText1.setText(Html.fromHtml(values[3]));
+            sosMorseText2.setText(Html.fromHtml(values[4]));
+            sosMorseText3.setText(Html.fromHtml(values[5]));
         }
 
         protected void onPostExecute(Void result) {
@@ -97,7 +106,8 @@ public class MainActivity extends ActionBarActivity {
         }
 
         private void sosLightWriting() throws InterruptedException {
-            publishProgress("<font color='#000000'>S</font>", "<font color='#DDDDDD'>O</font>", "<font color='#DDDDDD'>S</font>");
+            publishProgress("<font color='#000000'>S</font>", "<font color='#DDDDDD'>O</font>", "<font color='#DDDDDD'>S</font>",
+                    "<font color='#000000'>. . .</font>", "<font color='#DDDDDD'>_ _ _</font>", "<font color='#DDDDDD'>. . .</font>");
 
             camera.setParameters(cameraON);
             Thread.sleep(POINT_DELAY);
@@ -112,7 +122,8 @@ public class MainActivity extends ActionBarActivity {
             camera.setParameters(cameraOFF);
             Thread.sleep(BETWEEN_LETTERS_DELAY);
 
-            publishProgress("<font color='#000000'>S</font>", "<font color='#000000'>O</font>", "<font color='#DDDDDD'>S</font>");
+            publishProgress("<font color='#000000'>S</font>", "<font color='#000000'>O</font>", "<font color='#DDDDDD'>S</font>",
+                    "<font color='#000000'>. . .</font>", "<font color='#000000'>_ _ _</font>", "<font color='#DDDDDD'>. . .</font>");
 
             camera.setParameters(cameraON);
             Thread.sleep(LINE_DELAY);
@@ -127,7 +138,8 @@ public class MainActivity extends ActionBarActivity {
             camera.setParameters(cameraOFF);
             Thread.sleep(BETWEEN_LETTERS_DELAY);
 
-            publishProgress("<font color='#000000'>S</font>", "<font color='#000000'>O</font>", "<font color='#000000'>S</font>");
+            publishProgress("<font color='#000000'>S</font>", "<font color='#000000'>O</font>", "<font color='#000000'>S</font>",
+                    "<font color='#000000'>. . .</font>", "<font color='#000000'>_ _ _</font>", "<font color='#000000'>. . .</font>");
 
             camera.setParameters(cameraON);
             Thread.sleep(POINT_DELAY);

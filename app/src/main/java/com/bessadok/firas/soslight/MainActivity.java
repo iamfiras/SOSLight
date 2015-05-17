@@ -45,8 +45,6 @@ public class MainActivity extends ActionBarActivity {
 
         setContentView(R.layout.activity_main);
 
-        getSupportActionBar().setBackgroundDrawable(FlatUI.getActionBarDrawable(this, FlatUI.BLOOD, false, 2));
-
         if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
             Log.e("err", "This device doesn't have a camera");
             return;

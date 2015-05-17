@@ -78,6 +78,10 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private class SOSWriting extends AsyncTask<Void, String, Void> {
+        private static final String BLACK_FONT = "<font color='#000000'>";
+        private static final String GRAY_FONT = "<font color='#DDDDDD'>";
+        private static final String END_FONT = "</font>";
+
         @Override
         protected Void doInBackground(Void... params) {
             try {
@@ -106,8 +110,13 @@ public class MainActivity extends ActionBarActivity {
         }
 
         private void sosLightWriting() throws InterruptedException {
-            publishProgress("<font color='#000000'>S</font>", "<font color='#DDDDDD'>O</font>", "<font color='#DDDDDD'>S</font>",
-                    "<font color='#000000'>. . .</font>", "<font color='#DDDDDD'>_ _ _</font>", "<font color='#DDDDDD'>. . .</font>");
+            publishProgress(
+                    BLACK_FONT + "S" + END_FONT,
+                    GRAY_FONT + "O" + END_FONT,
+                    GRAY_FONT + "S" + END_FONT,
+                    BLACK_FONT + ". . ." + END_FONT,
+                    GRAY_FONT + "_ _ _" + END_FONT,
+                    GRAY_FONT + ". . ." + END_FONT);
 
             camera.setParameters(cameraON);
             Thread.sleep(POINT_DELAY);
@@ -122,8 +131,13 @@ public class MainActivity extends ActionBarActivity {
             camera.setParameters(cameraOFF);
             Thread.sleep(BETWEEN_LETTERS_DELAY);
 
-            publishProgress("<font color='#000000'>S</font>", "<font color='#000000'>O</font>", "<font color='#DDDDDD'>S</font>",
-                    "<font color='#000000'>. . .</font>", "<font color='#000000'>_ _ _</font>", "<font color='#DDDDDD'>. . .</font>");
+            publishProgress(
+                    BLACK_FONT + "S" + END_FONT,
+                    BLACK_FONT + "O" + END_FONT,
+                    GRAY_FONT + "S" + END_FONT,
+                    BLACK_FONT + ". . ." + END_FONT,
+                    BLACK_FONT + "_ _ _" + END_FONT,
+                    GRAY_FONT + ". . ." + END_FONT);
 
             camera.setParameters(cameraON);
             Thread.sleep(LINE_DELAY);
@@ -138,8 +152,13 @@ public class MainActivity extends ActionBarActivity {
             camera.setParameters(cameraOFF);
             Thread.sleep(BETWEEN_LETTERS_DELAY);
 
-            publishProgress("<font color='#000000'>S</font>", "<font color='#000000'>O</font>", "<font color='#000000'>S</font>",
-                    "<font color='#000000'>. . .</font>", "<font color='#000000'>_ _ _</font>", "<font color='#000000'>. . .</font>");
+            publishProgress(
+                    BLACK_FONT + "S" + END_FONT,
+                    BLACK_FONT + "O" + END_FONT,
+                    BLACK_FONT + "S" + END_FONT,
+                    BLACK_FONT + ". . ." + END_FONT,
+                    BLACK_FONT + "_ _ _" + END_FONT,
+                    BLACK_FONT + ". . ." + END_FONT);
 
             camera.setParameters(cameraON);
             Thread.sleep(POINT_DELAY);

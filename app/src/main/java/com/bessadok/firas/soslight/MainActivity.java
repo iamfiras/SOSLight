@@ -1,6 +1,7 @@
 package com.bessadok.firas.soslight;
 
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.hardware.Camera;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
@@ -94,7 +95,7 @@ public class MainActivity extends ActionBarActivity {
         }
 
         protected void onPreExecute () {
-            sosButton.setAlpha(0.5f);
+            sosButton.setBackgroundColor(0xFFFF827F);
             sosButton.setEnabled(false);
         }
 
@@ -108,7 +109,7 @@ public class MainActivity extends ActionBarActivity {
         }
 
         protected void onPostExecute(Void result) {
-            sosButton.setAlpha(1f);
+            sosButton.setBackgroundColor(0xFFC80000);
             sosButton.setEnabled(true);
         }
 

@@ -3,6 +3,8 @@
     package="com.bessadok.firas.soslight" >
 
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-feature android:name="android.hardware.camera.flash" android:required="true" />
 
     <application
         android:allowBackup="true"

@@ -50,6 +50,11 @@ public class MainActivity extends ActionBarActivity {
             return;
         }
 
+        if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)) {
+            Log.e("err", "This device doesn't have a flashlight");
+            return;
+        }
+
         cameraSetup();
 
         sosText1 = (TextView) findViewById(R.id.sosText1);

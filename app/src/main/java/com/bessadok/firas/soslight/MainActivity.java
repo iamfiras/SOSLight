@@ -13,8 +13,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.cengalabs.flatui.FlatUI;
-
 
 public class MainActivity extends ActionBarActivity {
 
@@ -39,10 +37,6 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        FlatUI.initDefaultValues(this);
-        FlatUI.setDefaultTheme(FlatUI.BLOOD);
-
         setContentView(R.layout.activity_main);
 
         if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
@@ -100,6 +94,7 @@ public class MainActivity extends ActionBarActivity {
         }
 
         protected void onPreExecute () {
+            sosButton.setAlpha(0.5f);
             sosButton.setEnabled(false);
         }
 
@@ -113,6 +108,7 @@ public class MainActivity extends ActionBarActivity {
         }
 
         protected void onPostExecute(Void result) {
+            sosButton.setAlpha(1f);
             sosButton.setEnabled(true);
         }
 

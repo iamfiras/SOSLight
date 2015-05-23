@@ -10,17 +10,17 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".MainActivity">
 
-    <com.cengalabs.flatui.views.FlatButton
+    <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="SOS"
         android:id="@+id/button"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        flatui:fl_blockButtonEffectHeight="3dp"
-        flatui:fl_fontFamily="roboto"
-        flatui:fl_fontWeight="light"
-        android:textSize="20pt" />
+        android:textSize="20pt"
+        android:background="#ffc80000"
+        android:textColor="#ffffffff"
+        android:typeface="normal" />
 
     <LinearLayout
         android:orientation="vertical"
